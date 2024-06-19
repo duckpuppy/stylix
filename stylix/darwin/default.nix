@@ -2,12 +2,12 @@ inputs:
 { palette-generator, base16, homeManagerModule }:
 { lib, ... }:
 
-let
-  autoload = import ../autoload.nix { inherit lib; } "darwin";
+let autoload = import ../autoload.nix { inherit lib; } "darwin";
 in {
   imports = [
     ../pixel.nix
     ../target.nix
+    ../opacity.nix
     ./fonts.nix
     (import ./palette.nix { inherit palette-generator base16; })
     (import ../templates.nix inputs)
